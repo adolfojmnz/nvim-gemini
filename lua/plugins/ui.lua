@@ -2,11 +2,13 @@
 return {
   -- Colorscheme
   {
-    "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "tokyonight"
+      -- Use the dark theme
+      vim.g.gruvbox_variant = "dark"
+      vim.cmd.colorscheme "gruvbox"
     end,
   },
 
@@ -17,7 +19,8 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          theme = "tokyonight",
+          -- Use the gruvbox theme for lualine
+          theme = "gruvbox",
           component_separators = { left = '', right = ''},
           section_separators = { left = '', right = ''},
         },
