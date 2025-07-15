@@ -1,0 +1,37 @@
+-- ~/.config/nvim/lua/plugins/ui.lua
+return {
+  -- Colorscheme
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme "tokyonight"
+    end,
+  },
+
+  -- Statusline
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = "tokyonight",
+          component_separators = { left = '', right = ''},
+          section_separators = { left = '', right = ''},
+        },
+      })
+    end,
+  },
+
+  -- File Explorer
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("nvim-tree").setup({})
+      vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+    end,
+  },
+}
