@@ -33,7 +33,13 @@ return {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("nvim-tree").setup({})
+      -- ✅ Updated nvim-tree configuration
+      require("nvim-tree").setup({
+        -- By default, nvim-tree respects .gitignore
+        filters = {
+          git_ignored = false, -- Set to false to show git-ignored files
+        },
+      })
       vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
     end,
   },
